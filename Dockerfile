@@ -41,6 +41,9 @@ RUN \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*
-
+# add supervisord configs and prep cloudflared
+COPY supervisord.conf /etc/supervisord.conf
+COPY argo-tunnel.sh /usr/share/argo-tunnel.sh
+RUN chmod +x /usr/share/argo-tunnel.sh
 # add local files
 COPY root/ /

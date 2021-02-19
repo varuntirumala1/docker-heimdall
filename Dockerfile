@@ -47,3 +47,5 @@ COPY argo-tunnel.sh /usr/share/argo-tunnel.sh
 RUN chmod +x /usr/share/argo-tunnel.sh
 # add local files
 COPY root/ /
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

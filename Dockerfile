@@ -27,9 +27,9 @@ RUN \
  && curl -s -O https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz \
  && tar zxf cloudflared-stable-linux-amd64.tgz \
  && mv cloudflared /bin \
- && rm cloudflared-stable-linux-amd64.tgz
- && echo "**** install heimdall ****" && \
- mkdir -p \
+ && rm cloudflared-stable-linux-amd64.tgz \
+ && echo "**** install heimdall ****" \
+ && mkdir -p \
 	/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \
 	HEIMDALL_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/Heimdall/releases/latest" \

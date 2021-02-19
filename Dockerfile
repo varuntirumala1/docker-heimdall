@@ -28,7 +28,7 @@ RUN \
  && tar zxf cloudflared-stable-linux-amd64.tgz \
  && mv cloudflared /bin \
  && rm cloudflared-stable-linux-amd64.tgz
- echo "**** install heimdall ****" && \
+ && echo "**** install heimdall ****" && \
  mkdir -p \
 	/heimdall && \
  if [ -z ${HEIMDALL_RELEASE+x} ]; then \

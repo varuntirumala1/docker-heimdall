@@ -20,7 +20,14 @@ RUN \
 	php7-pdo_sqlite \
 	php7-tokenizer \
 	php7-zip \
-	tar && \
+	nano \
+	supervisor \
+	libc6-compat \
+	tar \
+ && curl -s -O https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz \
+ && tar zxf cloudflared-stable-linux-amd64.tgz \
+ && mv cloudflared /bin \
+ && rm cloudflared-stable-linux-amd64.tgz
  echo "**** install heimdall ****" && \
  mkdir -p \
 	/heimdall && \

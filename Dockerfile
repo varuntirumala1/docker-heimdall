@@ -4,8 +4,6 @@ FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.12
 ARG BUILD_DATE
 ARG VERSION
 ARG HEIMDALL_RELEASE
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="aptalca"
 
 # environment settings
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
@@ -41,11 +39,9 @@ RUN \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*
-# add supervisord configs and prep cloudflared
-COPY supervisord.conf /etc/supervisord.conf
-COPY argo-tunnel.sh /usr/share/argo-tunnel.sh
-RUN chmod +x /usr/share/argo-tunnel.sh
 # add local files
 COPY root/ /
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+VOLUME /argo
+
+EXPOSE 80
